@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/lib/searchable-select/src/searchable-select.css">
+    <style>
+        #test-container-select{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="test-container">
+        <select name="test-container" id="test-container-select">
+            <option value="hello1">hello1</option>
+            <option value="hello12">hello2</option>
+            <option value="hello13">hello3</option>
+            <option value="hello14">hello4</option>
+            <option value="hello15">hello5</option>
+        </select>
+    </div>
+    
+    <script src="/lib/searchable-select/src/searchable-select.js"></script>
+
+    <script>
+        let testSelect = new SearchableSelect('#test-container-select', {
+            primaryColor: 'black',
+            borderColor: 'black',
+            searchPlaceholder: 'Search colors...'
+        })
+    </script>
+</body>
+</html>
