@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchableSelect - Complete Examples</title>
+    <link rel="stylesheet" href="../src/searchable-select.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .example-card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .example-card h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .example-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .example-card select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-size: 12px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #1565c0;
+        }
+
+        .demo-section {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-section h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.6em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .demo-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .demo-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-item label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .output {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .output h3 {
+            color: #667eea;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .output p {
+            color: #666;
+            font-size: 0.9em;
+            margin: 5px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer p {
+            font-size: 0.95em;
+        }
+
+        .theme-example {
+            --ss-primary-color: #667eea;
+            --ss-border-radius: 8px;
+        }
+
+        .theme-example-red {
+            --ss-primary-color: #f44336;
+        }
+
+        .theme-example-green {
+            --ss-primary-color: #4caf50;
+        }
+
+        .theme-example-blue {
+            --ss-primary-color: #2196f3;
+        }
+
+        .theme-example-orange {
+            --ss-primary-color: #ff9800;
+        }
+
+        .status-label {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-success {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .status-error {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>🎨 SearchableSelect</h1>
+        <p>Beautiful, Customizable Dropdown Component - Live Examples</p>
+    </header>
+
+    <!-- Example Cards -->
+    <div class="examples-grid">
+        <div class="example-card">
+            <h2>Basic Usage</h2>
+            <p>A simple, elegant searchable select with default styling.</p>
+            <select id="basic-example">
+                <option value="">Select an option...</option>
+                <option value="angular">Angular</option>
+                <option value="react">React</option>
+                <option value="vue">Vue.js</option>
+                <option value="svelte">Svelte</option>
+                <option value="ember">Ember.js</option>
+            </select>
+            <div class="code-block">
+                <pre>new SearchableSelect('#basic-example');</pre>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h2>Custom Colors</h2>
+            <p>Color customization via JavaScript configuration.</p>
+            <select id="custom-color-example" class="theme-example-red">
+                <option value="">Pick a color...</option>
+                <option value="red">Red (Primary)</option>
+                <option value="pink">Pink</option>
+                <option value="crimson">Crimson</option>
+            </select>
+            <div class="code-block">
+                <pre>new SearchableSelect('#id', {
+  primaryColor: '#f44336'
+});</pre>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h2>CSS Variables</h2>
+            <p>Create themes using CSS custom properties.</p>
+            <select id="css-var-example" class="theme-example-green">
+                <option value="">Select from theme...</option>
+                <option value="css1">Great Option 1</option>
+                <option value="css2">Great Option 2</option>
+                <option value="css3">Great Option 3</option>
+            </select>
+            <div class="code-block">
+                <pre>#css-var-example {
+  --ss-primary-color: #4caf50;
+}</pre>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h2>With Callbacks</h2>
+            <p>Respond to user interactions with callbacks.</p>
+            <select id="callback-example">
+                <option value="">Select something...</option>
+                <option value="opt1">Option 1</option>
+                <option value="opt2">Option 2</option>
+                <option value="opt3">Option 3</option>
+            </select>
+            <div id="callback-output" class="output" style="margin-top: 15px; display: none;">
+                <h3>Event Output:</h3>
+                <p id="callback-result">Waiting for interaction...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comprehensive Demo Section -->
+    <div class="demo-section">
+        <h2>Complete Theme Showcase</h2>
+        
+        <div class="demo-row">
+            <div class="demo-item">
+                <label>Default Theme</label>
+                <select id="theme-default">
+                    <option value="">Select...</option>
+                    <option value="opt1">Option 1</option>
+                    <option value="opt2">Option 2</option>
+                </select>
+            </div>
+
+            <div class="demo-item">
+                <label>Blue Theme</label>
+                <select id="theme-blue" class="theme-example-blue">
+                    <option value="">Select...</option>
+                    <option value="opt1">Option 1</option>
+                    <option value="opt2">Option 2</option>
+                </select>
+            </div>
+
+            <div class="demo-item">
+                <label>Orange Theme</label>
+                <select id="theme-orange" class="theme-example-orange">
+                    <option value="">Select...</option>
+                    <option value="opt1">Option 1</option>
+                    <option value="opt2">Option 2</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>💡 Tip:</strong> All examples use the same library with different configurations. Click any dropdown to see the smooth animations and search functionality in action.
+        </div>
+    </div>
+
+    <!-- Form Example -->
+    <div class="demo-section">
+        <h2>Complete Form Integration</h2>
+        
+        <form id="demo-form">
+            <div class="demo-row">
+                <div class="demo-item">
+                    <label for="form-service">Service</label>
+                    <select id="form-service" class="theme-example-red">
+                        <option value="">Select a service...</option>
+                        <option value="web-dev">Web Development</option>
+                        <option value="mobile-dev">Mobile Development</option>
+                        <option value="ui-ux">UI/UX Design</option>
+                        <option value="consulting">Consulting</option>
+                    </select>
+                </div>
+
+                <div class="demo-item">
+                    <label for="form-budget">Budget Range</label>
+                    <select id="form-budget" class="theme-example-green">
+                        <option value="">Select budget...</option>
+                        <option value="5k-10k">$5,000 - $10,000</option>
+                        <option value="10k-25k">$10,000 - $25,000</option>
+                        <option value="25k-50k">$25,000 - $50,000</option>
+                        <option value="50k+">$50,000+</option>
+                    </select>
+                </div>
+
+                <div class="demo-item">
+                    <label for="form-timeline">Timeline</label>
+                    <select id="form-timeline" class="theme-example-blue">
+                        <option value="">Select timeline...</option>
+                        <option value="urgent">Urgent (1-2 weeks)</option>
+                        <option value="soon">Soon (1 month)</option>
+                        <option value="flexible">Flexible (2-3 months)</option>
+                        <option value="open">Open timeline</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="output" style="margin-top: 30px;">
+                <h3>Form Data:</h3>
+                <p>Service: <strong id="form-service-value">Not selected</strong></p>
+                <p>Budget: <strong id="form-budget-value">Not selected</strong></p>
+                <p>Timeline: <strong id="form-timeline-value">Not selected</strong></p>
+            </div>
+
+            <button type="submit" style="margin-top: 20px; padding: 12px 30px; background: #667eea; color: white; border: none; border-radius: 4px; font-size: 1em; font-weight: 600; cursor: pointer;">
+                Submit Form
+            </button>
+        </form>
+    </div>
+
+    <footer>
+        <p>🚀 SearchableSelect v1.0.0 - Learn more at <strong>GitHub</strong></p>
+        <p style="margin-top: 10px; opacity: 0.8;">Perfect for web forms, dashboards, and interactive applications</p>
+    </footer>
+</div>
+
+<script src="../src/searchable-select.js"></script>
+<script>
+    // ==================== Basic Examples ====================
+    
+    // Example 1: Basic usage
+    const basicSelect = new SearchableSelect('#basic-example', {
+        searchPlaceholder: 'Search frameworks...'
+    });
+
+    // Example 2: Custom colors
+    const customColorSelect = new SearchableSelect('#custom-color-example', {
+        primaryColor: '#f44336',
+        searchPlaceholder: 'Search colors...'
+    });
+
+    // Example 3: CSS Variables (colors defined in CSS)
+    const cssVarSelect = new SearchableSelect('#css-var-example', {
+        searchPlaceholder: 'Search...'
+    });
+
+    // Example 4: With callbacks
+    const callbackSelect = new SearchableSelect('#callback-example', {
+        primaryColor: '#2196f3',
+        searchPlaceholder: 'Try selecting...',
+        onOpen: function() {
+            console.log('Dropdown opened');
+        },
+        onSelect: function(value, text) {
+            document.getElementById('callback-output').style.display = 'block';
+            document.getElementById('callback-result').textContent = `You selected: ${text} (${value})`;
+        },
+        onClose: function() {
+            console.log('Dropdown closed');
+        }
+    });
+
+    // ==================== Theme Examples ====================
+    new SearchableSelect('#theme-default', {
+        primaryColor: '#1a9b8e'
+    });
+
+    new SearchableSelect('#theme-blue', {
+        primaryColor: '#2196f3'
+    });
+
+    new SearchableSelect('#theme-orange', {
+        primaryColor: '#ff9800'
+    });
+
+    // ==================== Form Integration ====================
+    const serviceSelect = new SearchableSelect('#form-service', {
+        searchPlaceholder: 'Search services...',
+        onSelect: function(value, text) {
+            document.getElementById('form-service-value').textContent = text;
+        }
+    });
+
+    const budgetSelect = new SearchableSelect('#form-budget', {
+        searchPlaceholder: 'Search budgets...',
+        onSelect: function(value, text) {
+            document.getElementById('form-budget-value').textContent = text;
+        }
+    });
+
+    const timelineSelect = new SearchableSelect('#form-timeline', {
+        searchPlaceholder: 'Search timelines...',
+        onSelect: function(value, text) {
+            document.getElementById('form-timeline-value').textContent = text;
+        }
+    });
+
+    // Form submission
+    document.getElementById('demo-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const service = serviceSelect.getValue();
+        const budget = budgetSelect.getValue();
+        const timeline = timelineSelect.getValue();
+
+        if (!service || !budget || !timeline) {
+            alert('Please complete all fields');
+            return;
+        }
+
+        alert('Form submitted!\nService: ' + serviceSelect.getText() + '\nBudget: ' + budgetSelect.getText() + '\nTimeline: ' + timelineSelect.getText());
+    });
+
+    // Log all interactions
+    console.log('%c📦 SearchableSelect Examples Loaded!', 'font-size: 16px; font-weight: bold; color: #667eea;');
+    console.log('Try opening the dropdowns and searching!');
+</script>
+
+</body>
+</html>

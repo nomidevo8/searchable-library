@@ -1,0 +1,29 @@
+{
+  "name": "searchable-select",
+  "version": "1.0.0",
+  "description": "A beautiful, fully customizable searchable select dropdown library. Works with vanilla JavaScript and jQuery. Supports CSS variable theming and full JavaScript configuration.",
+  "main": "dist/searchable-select.js",
+  "module": "src/searchable-select.js",
+  "types": "searchable-select.d.ts",
+  "keywords": [
+    "select",
+    "dropdown",
+    "searchable",
+    "searchable-select",
+    "autocomplete",
+    "vanilla-js",
+    "jquery",
+    "customizable",
+    "themed"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/searchable-select.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/searchable-select/issues"
+  },
+  "homepage": "https://github.com/yourusername/searchable-select"
+}
